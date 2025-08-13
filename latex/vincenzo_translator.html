@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaTeX Translator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>LaTeX Translator by VINCENZO💼</h1>
+        <textarea id="latex-input" placeholder="Вставьте сюда сообщение с формулами, полученное от Винченцо..."></textarea>
+        <div class="button-group">
+            <button onclick="renderContent()">Конвертировать</button>
+            <button onclick="clearInput()">Очистить</button>
+            <!--button onclick="pasteText()">Вставить</button-->
+            <!--button onclick="copyText()">Копировать</button-->
+            <!--button onclick="saveAsImage()">Сохранить как изображение</button-->
+        </div>
+        <div id="latex-output"></div>
+    </div>
+    <img src="https://vincenzo.tw1.su/latex/Sticker.png" alt="Decorative Image" class="bottom-left-image">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.3.2/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

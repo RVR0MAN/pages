@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>СК ПОЕДИНОК - Гость</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="common.js"></script>
+    <script type="module" src="config.js"></script>
+    <script type="module" src="guest.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Дополнительные стили для ученика */
+        .user-info p {
+            margin: 12px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .user-info .label {
+            font-weight: 500;
+        }
+
+        .user-info .value {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .visit-card p {
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .visit-card .value {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Главный экран -->
+    <div id="mainScreen">
+        <h1><i class="fas fa-handshake"></i> СК ПОЕДИНОК</h1>
+        <div class="btn-container">
+            <button id="profileBtn" class="btn">Профиль</button>
+            <button id="visitsBtn" class="btn">Мои посещения</button>
+        </div>
+    </div>
+
+    <!-- Экран профиля -->
+    <div id="profileScreen" class="hidden">
+        <h2 class="screen-title">Профиль</h2>
+        <div class="card">
+            <div id="userInfo" class="user-info">
+                <!-- Данные будут заполнены динамически -->
+            </div>
+            <div class="btn-container">
+                <button id="applicationBtn" class="btn">Отправить заявку</button>
+                <button id="backFromProfileBtn" class="btn">Назад</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран заявки -->
+    <div id="applicationScreen" class="hidden">
+        <h2 class="screen-title">Заявка на регистрацию</h2>
+        <div class="card">
+            <form id="applicationForm">
+                <div class="form-group">
+                    <label for="lastName">Фамилия</label>
+                    <input type="text" id="lastName" placeholder="Введите фамилию" required>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Имя</label>
+                    <input type="text" id="firstName" placeholder="Введите имя" required>
+                </div>
+                <div class="form-group">
+                    <label for="middleName">Отчество</label>
+                    <input type="text" id="middleName" placeholder="Введите отчество" required>
+                </div>
+                <div class="form-group">
+                    <label for="group">Группа</label>
+                    <input type="text" id="group" placeholder="Введите группу" required>
+                </div>
+                <div class="btn-container">
+                    <button type="submit" class="btn">Отправить</button>
+                    <button type="button" id="cancelApplicationBtn" class="btn">Назад</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Глобальный экран загрузки -->
+    <div id="globalLoading" class="hidden">
+        <div class="modal-content">
+            <div class="spinner"></div>
+            <p>Подождите...</p>
+        </div>
+        <style>
+            #globalLoading {
+                position: fixed;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 10000;
+            }
+            #globalLoading .modal-content {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 12px;
+                padding: 24px 28px;
+                text-align: center;
+                color: #fff;
+                backdrop-filter: blur(8px);
+            }
+            #globalLoading .spinner {
+                width: 36px;
+                height: 36px;
+                border: 4px solid rgba(255,255,255,0.3);
+                border-top-color: #fff;
+                border-radius: 50%;
+                margin: 0 auto 12px;
+                animation: spin 0.8s linear infinite;
+            }
+            @keyframes spin { to { transform: rotate(360deg); } }
+        </style>
+    </div>
+</div>
+</body>
+</html>
